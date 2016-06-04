@@ -45,66 +45,99 @@ class MapViewController : UIViewController
 	{
 		var fietssnelwegen : [ Fietssnelweg ] = []
 		
-		if let path = NSBundle.mainBundle().pathForResource("fietssnelwegen", ofType: "json"),
-			data = NSData(contentsOfFile: path)
+		if let path = NSBundle.mainBundle().pathForResource("realisatiegraad", ofType: "txt")
 		{
-			let jsonObject : NSDictionary!
+			let lines : [ NSString ]
 			
 			do
 			{
-				jsonObject = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary
+				let text = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding)
+				lines = text.componentsSeparatedByString("\n")
 			}
 			catch
 			{
 				return
 			}
 			
-						
-			if let features = jsonObject["features"] as? [ NSDictionary ]
+			
+			var nummering : String?
+			var vanNaar : String?
+			var segmenten : [ FietssnelwegSegment ]?
+			
+			var coordinaten : [ CLLocationCoordinate2D ]?
+			var realisatiegraad : FietssnelwegSegment.RealisatieGraad?
+			
+			
+			let pushSnelweg =
 			{
-				for feature in features
+				if let segmenten = segmenten, nummering = nummering, vanNaar = vanNaar
 				{
-					if let attributes = feature["attributes"] as? [ NSString : AnyObject ],
-						nummer = attributes["nummering"] as? String,
-						vanNaar = attributes["van_naar"] as? String,
-						lengte = attributes["lengte_km"] as? NSNumber,
-						gerealiseerd = attributes["gerealisee"] as? NSNumber,
-						geometry = feature["geometry"] as? NSDictionary,
-						paths = geometry["paths"] as? [ NSArray ]
+					fietssnelwegen.append(Fietssnelweg(segmenten: segmenten, nummer: nummering, vanNaar: vanNaar))
+				}
+				segmenten = nil
+				nummering = nil
+				realisatiegraad = nil
+				coordinaten = nil
+			}
+			
+			let pushSegment =
+			{
+				if coordinaten != nil && realisatiegraad != nil
+				{
+					let polyline = MKPolyline(coordinates: &coordinaten!, count: coordinaten!.count)
+					
+					segmenten?.append(FietssnelwegSegment(polyline: polyline, realisatiegraad: realisatiegraad!))
+				}
+				
+				coordinaten = nil
+				realisatiegraad = nil
+			}
+			
+			
+			for line in lines
+			{
+				let components = line.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).componentsSeparatedByString("\t")
+				
+				if (line.hasPrefix("\t\t") && components.count > 1)
+				{
+					// coordinate
+					let latitude = components[0] as NSString
+					let longitude = components[1] as NSString
+					
+					coordinaten?.append(CLLocationCoordinate2DMake(latitude.doubleValue, longitude.doubleValue))
+					
+				}
+				else if (line.hasPrefix("\t") && components.count > 0)
+				{
+					pushSegment()
+										
+					switch (components[0])
 					{
-						var segmenten : [ FietssnelwegSegment ] = []
+						case "onbestaand":
+							realisatiegraad = .Onbestaand
 						
-						for pathArray in paths
-						{
-							if let polyline = pathArrayToPolyline(pathArray)
-							{
-								let realisatiegraad : FietssnelwegSegment.RealisatieGraad
-								
-								if (gerealiseerd.doubleValue == 0.0)
-								{
-									realisatiegraad = .Onbestaand
-								}
-								else if (gerealiseerd.doubleValue == lengte.doubleValue)
-								{
-									realisatiegraad = .Bestaand
-								}
-								else
-								{
-									realisatiegraad = .Onbekend
-								}
-								
-								
-								segmenten.append(FietssnelwegSegment(polyline: polyline, realisatiegraad: realisatiegraad))
-							}
-						}
+						case "bestaand":
+							realisatiegraad = .Bestaand
 						
-						if (segmenten.count > 0)
-						{
-							fietssnelwegen.append(Fietssnelweg(segmenten : segmenten, nummer : nummer, vanNaar : vanNaar))
-						}
+						default:
+							realisatiegraad = .Onbekend
 					}
+					
+					coordinaten = []
+				}
+				else if (components.count > 1)
+				{
+					pushSegment()
+					pushSnelweg()
+					
+					nummering = components[0]
+					vanNaar = components[1]
+					segmenten = []
 				}
 			}
+			
+			pushSegment()
+			pushSnelweg()
 		}
 		
 		if let mapView = self.mapView
