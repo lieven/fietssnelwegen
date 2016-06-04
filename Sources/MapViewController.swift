@@ -44,7 +44,6 @@ class MapViewController : UIViewController
 	func loadPaths()
 	{
 		var fietssnelwegen : [ Fietssnelweg ] = []
-		var realisatieOverlays : [ RealisatieOverlay ] = []
 		
 		if let path = NSBundle.mainBundle().pathForResource("fietssnelwegen", ofType: "json"),
 			data = NSData(contentsOfFile: path)
@@ -73,28 +72,35 @@ class MapViewController : UIViewController
 						geometry = feature["geometry"] as? NSDictionary,
 						paths = geometry["paths"] as? [ NSArray ]
 					{
-						var polylines : [ MKPolyline ] = []
+						var segmenten : [ FietssnelwegSegment ] = []
 						
 						for pathArray in paths
 						{
 							if let polyline = pathArrayToPolyline(pathArray)
 							{
-								polylines.append(polyline)
+								let realisatiegraad : FietssnelwegSegment.RealisatieGraad
 								
 								if (gerealiseerd.doubleValue == 0.0)
 								{
-									realisatieOverlays.append(RealisatieOverlay(polyline: polyline, gerealiseerd: false))
+									realisatiegraad = .Onbestaand
 								}
 								else if (gerealiseerd.doubleValue == lengte.doubleValue)
 								{
-									realisatieOverlays.append(RealisatieOverlay(polyline: polyline, gerealiseerd: true))
+									realisatiegraad = .Bestaand
 								}
+								else
+								{
+									realisatiegraad = .Onbekend
+								}
+								
+								
+								segmenten.append(FietssnelwegSegment(polyline: polyline, realisatiegraad: realisatiegraad))
 							}
 						}
 						
-						if (polylines.count > 0)
+						if (segmenten.count > 0)
 						{
-							fietssnelwegen.append(Fietssnelweg(polylines : polylines, nummer : nummer, vanNaar : vanNaar))
+							fietssnelwegen.append(Fietssnelweg(segmenten : segmenten, nummer : nummer, vanNaar : vanNaar))
 						}
 					}
 				}
@@ -107,11 +113,9 @@ class MapViewController : UIViewController
 						
 			for fietssnelweg in fietssnelwegen
 			{
-				mapView.addOverlays(fietssnelweg.polylines, level: .AboveRoads)
+				mapView.addOverlays(fietssnelweg.segmenten, level: .AboveRoads)
 				
 			}
-			
-			mapView.addOverlays(realisatieOverlays, level: .AboveLabels)
 		}
 	}
 	
@@ -145,25 +149,23 @@ extension MapViewController : MKMapViewDelegate
 {
 	func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer
 	{
-		if let realisatie = overlay as? RealisatieOverlay
+		if let segment = overlay as? FietssnelwegSegment
 		{
-			let renderer = MKPolylineRenderer(polyline: realisatie.polyline)
-			if (realisatie.gerealiseerd)
-			{
-				renderer.strokeColor = UIColor.greenColor()
-			}
-			else
-			{
-				renderer.strokeColor = UIColor.redColor()
-			}
-			renderer.lineWidth = 3.0
-			return renderer
-		}
-		else if let polyline = overlay as? MKPolyline
-		{
-			let renderer = MKPolylineRenderer(polyline: polyline)
-			renderer.strokeColor = UIColor.darkGrayColor()
+			let renderer = MKPolylineRenderer(polyline: segment.polyline)
 			renderer.lineWidth = 4.0
+			
+			switch (segment.realisatiegraad)
+			{
+				case .Onbekend:
+					renderer.strokeColor = UIColor.grayColor()
+					
+				case .Onbestaand:
+					renderer.strokeColor = UIColor.redColor()
+					
+				case .Bestaand:
+					renderer.strokeColor = UIColor.greenColor()
+			}
+			
 			return renderer
 		}
 		else

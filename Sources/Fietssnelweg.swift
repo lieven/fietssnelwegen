@@ -14,12 +14,12 @@ class Fietssnelweg
 	let nummer : String
 	let vanNaar : String
 	
-	let polylines : [ MKPolyline ]
+	let segmenten : [ FietssnelwegSegment]
 	
-	init(polylines : [ MKPolyline ], nummer : String, vanNaar : String)
+	init(segmenten : [ FietssnelwegSegment ], nummer : String, vanNaar : String)
 	{
 		self.nummer = nummer
 		self.vanNaar = vanNaar
-		self.polylines = polylines
+		self.segmenten = segmenten
 	}
 }

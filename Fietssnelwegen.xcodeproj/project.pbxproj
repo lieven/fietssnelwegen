@@ -13,7 +13,7 @@
 		CA2FD3D71D01BB7900C0DD67 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2FD3D21D01BB7900C0DD67 /* MapViewController.swift */; };
 		CA2FD3D91D02D4AA00C0DD67 /* Fietssnelweg.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2FD3D81D02D4AA00C0DD67 /* Fietssnelweg.swift */; };
 		CA2FD3DB1D02E0FE00C0DD67 /* PolylineOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2FD3DA1D02E0FE00C0DD67 /* PolylineOverlay.swift */; };
-		CA2FD3DD1D02E17200C0DD67 /* RealisatieOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2FD3DC1D02E17200C0DD67 /* RealisatieOverlay.swift */; };
+		CA2FD3DF1D0300E400C0DD67 /* FietssnelwegSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2FD3DE1D0300E400C0DD67 /* FietssnelwegSegment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		CA2FD3D21D01BB7900C0DD67 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CA2FD3D81D02D4AA00C0DD67 /* Fietssnelweg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fietssnelweg.swift; sourceTree = "<group>"; };
 		CA2FD3DA1D02E0FE00C0DD67 /* PolylineOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolylineOverlay.swift; sourceTree = "<group>"; };
-		CA2FD3DC1D02E17200C0DD67 /* RealisatieOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealisatieOverlay.swift; sourceTree = "<group>"; };
+		CA2FD3DE1D0300E400C0DD67 /* FietssnelwegSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FietssnelwegSegment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,10 +70,10 @@
 			isa = PBXGroup;
 			children = (
 				CA2FD3D11D01BB7900C0DD67 /* AppDelegate.swift */,
-				CA2FD3D21D01BB7900C0DD67 /* MapViewController.swift */,
 				CA2FD3D81D02D4AA00C0DD67 /* Fietssnelweg.swift */,
+				CA2FD3DE1D0300E400C0DD67 /* FietssnelwegSegment.swift */,
+				CA2FD3D21D01BB7900C0DD67 /* MapViewController.swift */,
 				CA2FD3DA1D02E0FE00C0DD67 /* PolylineOverlay.swift */,
-				CA2FD3DC1D02E17200C0DD67 /* RealisatieOverlay.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -152,7 +152,7 @@
 				CA2FD3D61D01BB7900C0DD67 /* AppDelegate.swift in Sources */,
 				CA2FD3DB1D02E0FE00C0DD67 /* PolylineOverlay.swift in Sources */,
 				CA2FD3D71D01BB7900C0DD67 /* MapViewController.swift in Sources */,
-				CA2FD3DD1D02E17200C0DD67 /* RealisatieOverlay.swift in Sources */,
+				CA2FD3DF1D0300E400C0DD67 /* FietssnelwegSegment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +289,7 @@
 				CA2FD3CB1D01B8DD00C0DD67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
