@@ -1,0 +1,296 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CA2FD3D31D01BB7900C0DD67 /* fietssnelwegen.json in Resources */ = {isa = PBXBuildFile; fileRef = CA2FD3CD1D01BB7900C0DD67 /* fietssnelwegen.json */; };
+		CA2FD3D51D01BB7900C0DD67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA2FD3CF1D01BB7900C0DD67 /* LaunchScreen.storyboard */; };
+		CA2FD3D61D01BB7900C0DD67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2FD3D11D01BB7900C0DD67 /* AppDelegate.swift */; };
+		CA2FD3D71D01BB7900C0DD67 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2FD3D21D01BB7900C0DD67 /* MapViewController.swift */; };
+		CA2FD3D91D02D4AA00C0DD67 /* Fietssnelweg.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2FD3D81D02D4AA00C0DD67 /* Fietssnelweg.swift */; };
+		CA2FD3DB1D02E0FE00C0DD67 /* PolylineOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2FD3DA1D02E0FE00C0DD67 /* PolylineOverlay.swift */; };
+		CA2FD3DD1D02E17200C0DD67 /* RealisatieOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2FD3DC1D02E17200C0DD67 /* RealisatieOverlay.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CA2FD3B71D01B8DD00C0DD67 /* Fietssnelwegen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fietssnelwegen.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA2FD3CD1D01BB7900C0DD67 /* fietssnelwegen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fietssnelwegen.json; sourceTree = "<group>"; };
+		CA2FD3CE1D01BB7900C0DD67 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA2FD3CF1D01BB7900C0DD67 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CA2FD3D11D01BB7900C0DD67 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CA2FD3D21D01BB7900C0DD67 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		CA2FD3D81D02D4AA00C0DD67 /* Fietssnelweg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fietssnelweg.swift; sourceTree = "<group>"; };
+		CA2FD3DA1D02E0FE00C0DD67 /* PolylineOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolylineOverlay.swift; sourceTree = "<group>"; };
+		CA2FD3DC1D02E17200C0DD67 /* RealisatieOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealisatieOverlay.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CA2FD3B41D01B8DD00C0DD67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CA2FD3AE1D01B8DD00C0DD67 = {
+			isa = PBXGroup;
+			children = (
+				CA2FD3D01D01BB7900C0DD67 /* Sources */,
+				CA2FD3CC1D01BB7900C0DD67 /* Resources */,
+				CA2FD3B81D01B8DD00C0DD67 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CA2FD3B81D01B8DD00C0DD67 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA2FD3B71D01B8DD00C0DD67 /* Fietssnelwegen.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA2FD3CC1D01BB7900C0DD67 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CA2FD3CD1D01BB7900C0DD67 /* fietssnelwegen.json */,
+				CA2FD3CE1D01BB7900C0DD67 /* Info.plist */,
+				CA2FD3CF1D01BB7900C0DD67 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CA2FD3D01D01BB7900C0DD67 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CA2FD3D11D01BB7900C0DD67 /* AppDelegate.swift */,
+				CA2FD3D21D01BB7900C0DD67 /* MapViewController.swift */,
+				CA2FD3D81D02D4AA00C0DD67 /* Fietssnelweg.swift */,
+				CA2FD3DA1D02E0FE00C0DD67 /* PolylineOverlay.swift */,
+				CA2FD3DC1D02E17200C0DD67 /* RealisatieOverlay.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CA2FD3B61D01B8DD00C0DD67 /* Fietssnelwegen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA2FD3C91D01B8DD00C0DD67 /* Build configuration list for PBXNativeTarget "Fietssnelwegen" */;
+			buildPhases = (
+				CA2FD3B31D01B8DD00C0DD67 /* Sources */,
+				CA2FD3B41D01B8DD00C0DD67 /* Frameworks */,
+				CA2FD3B51D01B8DD00C0DD67 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Fietssnelwegen;
+			productName = Fietssnelwegen;
+			productReference = CA2FD3B71D01B8DD00C0DD67 /* Fietssnelwegen.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA2FD3AF1D01B8DD00C0DD67 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Plane Tree Software";
+				TargetAttributes = {
+					CA2FD3B61D01B8DD00C0DD67 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = CA2FD3B21D01B8DD00C0DD67 /* Build configuration list for PBXProject "Fietssnelwegen" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CA2FD3AE1D01B8DD00C0DD67;
+			productRefGroup = CA2FD3B81D01B8DD00C0DD67 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA2FD3B61D01B8DD00C0DD67 /* Fietssnelwegen */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CA2FD3B51D01B8DD00C0DD67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA2FD3D51D01BB7900C0DD67 /* LaunchScreen.storyboard in Resources */,
+				CA2FD3D31D01BB7900C0DD67 /* fietssnelwegen.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CA2FD3B31D01B8DD00C0DD67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA2FD3D91D02D4AA00C0DD67 /* Fietssnelweg.swift in Sources */,
+				CA2FD3D61D01BB7900C0DD67 /* AppDelegate.swift in Sources */,
+				CA2FD3DB1D02E0FE00C0DD67 /* PolylineOverlay.swift in Sources */,
+				CA2FD3D71D01BB7900C0DD67 /* MapViewController.swift in Sources */,
+				CA2FD3DD1D02E17200C0DD67 /* RealisatieOverlay.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CA2FD3C71D01B8DD00C0DD67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CA2FD3C81D01B8DD00C0DD67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CA2FD3CA1D01B8DD00C0DD67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.planetreesoftware.Fietssnelwegen;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		CA2FD3CB1D01B8DD00C0DD67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.planetreesoftware.Fietssnelwegen;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CA2FD3B21D01B8DD00C0DD67 /* Build configuration list for PBXProject "Fietssnelwegen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA2FD3C71D01B8DD00C0DD67 /* Debug */,
+				CA2FD3C81D01B8DD00C0DD67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA2FD3C91D01B8DD00C0DD67 /* Build configuration list for PBXNativeTarget "Fietssnelwegen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA2FD3CA1D01B8DD00C0DD67 /* Debug */,
+				CA2FD3CB1D01B8DD00C0DD67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA2FD3AF1D01B8DD00C0DD67 /* Project object */;
+}
