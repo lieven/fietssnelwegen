@@ -151,31 +151,6 @@ class MapViewController : UIViewController
 			}
 		}
 	}
-	
-	func pathArrayToPolyline(_ inPathArray : NSArray) -> MKPolyline?
-	{
-		var coordinates : [ CLLocationCoordinate2D ] = []
-		
-		for coordinateArray in inPathArray
-		{
-			if let coordinate = coordinateArray as? [ NSNumber ]
-			{
-				let longitude = coordinate[0]
-				let latitude = coordinate[1]
-				
-				coordinates.append(CLLocationCoordinate2DMake(latitude.doubleValue, longitude.doubleValue))
-			}
-		}
-		
-		if coordinates.count > 1
-		{
-			return MKPolyline(coordinates: &coordinates, count: coordinates.count)
-		}
-		else
-		{
-			return nil
-		}
-	}
 }
 
 extension MapViewController : MKMapViewDelegate
