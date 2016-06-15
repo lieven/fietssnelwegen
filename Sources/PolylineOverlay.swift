@@ -32,9 +32,9 @@ class PolylineOverlay : NSObject, MKOverlay
 		}
 	}
     
-	func intersectsMapRect(mapRect: MKMapRect) -> Bool
+	func intersects(_ mapRect: MKMapRect) -> Bool
 	{
-		return self.polyline.intersectsMapRect(mapRect)
+		return self.polyline.intersects(mapRect)
 	}
 	
 	let polyline : MKPolyline

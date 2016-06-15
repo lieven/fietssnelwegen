@@ -110,6 +110,7 @@
 				TargetAttributes = {
 					CA2FD3B61D01B8DD00C0DD67 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -254,6 +255,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.planetreesoftware.Fietssnelwegen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -267,6 +269,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.planetreesoftware.Fietssnelwegen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

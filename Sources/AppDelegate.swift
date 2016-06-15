@@ -14,10 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	var window: UIWindow?
 
 
-	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
 	{
 		let window = UIWindow()
-		window.backgroundColor = UIColor.whiteColor()
+		window.backgroundColor = UIColor.white()
 		window.rootViewController = MapViewController()
 		
 		self.window = window

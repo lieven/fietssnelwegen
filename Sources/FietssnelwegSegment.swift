@@ -12,9 +12,9 @@ class FietssnelwegSegment : PolylineOverlay
 {
 	enum RealisatieGraad
 	{
-		case Onbekend
-		case Onbestaand
-		case Bestaand
+		case onbekend
+		case onbestaand
+		case bestaand
 	}
 	
 	let realisatiegraad : RealisatieGraad

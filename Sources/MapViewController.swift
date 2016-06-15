@@ -29,9 +29,9 @@ class MapViewController : UIViewController
 		super.viewDidLoad()
 		
 		let mapView = MKMapView(frame: self.view.bounds)
-		mapView.autoresizingMask = [ .FlexibleWidth, .FlexibleHeight ]
+		mapView.autoresizingMask = [ .flexibleWidth, .flexibleHeight ]
 		mapView.delegate = self
-		mapView.mapType = .Standard
+		mapView.mapType = .standard
 		
 		self.view.addSubview(mapView)
 		
@@ -45,14 +45,14 @@ class MapViewController : UIViewController
 	{
 		var fietssnelwegen : [ Fietssnelweg ] = []
 		
-		if let path = NSBundle.mainBundle().pathForResource("realisatiegraad", ofType: "txt")
+		if let path = Bundle.main().pathForResource("realisatiegraad", ofType: "txt")
 		{
 			let lines : [ NSString ]
 			
 			do
 			{
-				let text = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding)
-				lines = text.componentsSeparatedByString("\n")
+				let text = try NSString(contentsOfFile: path, encoding: String.Encoding.utf8.rawValue)
+				lines = text.components(separatedBy: "\n")
 			}
 			catch
 			{
@@ -96,7 +96,7 @@ class MapViewController : UIViewController
 			
 			for line in lines
 			{
-				let components = line.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).componentsSeparatedByString("\t")
+				let components = line.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).components(separatedBy: "\t")
 				
 				if (line.hasPrefix("\t\t") && components.count > 1)
 				{
@@ -114,13 +114,13 @@ class MapViewController : UIViewController
 					switch (components[0])
 					{
 						case "onbestaand":
-							realisatiegraad = .Onbestaand
+							realisatiegraad = .onbestaand
 						
 						case "bestaand":
-							realisatiegraad = .Bestaand
+							realisatiegraad = .bestaand
 						
 						default:
-							realisatiegraad = .Onbekend
+							realisatiegraad = .onbekend
 					}
 					
 					coordinaten = []
@@ -146,13 +146,13 @@ class MapViewController : UIViewController
 						
 			for fietssnelweg in fietssnelwegen
 			{
-				mapView.addOverlays(fietssnelweg.segmenten, level: .AboveRoads)
+				mapView.addOverlays(fietssnelweg.segmenten, level: .aboveRoads)
 				
 			}
 		}
 	}
 	
-	func pathArrayToPolyline(inPathArray : NSArray) -> MKPolyline?
+	func pathArrayToPolyline(_ inPathArray : NSArray) -> MKPolyline?
 	{
 		var coordinates : [ CLLocationCoordinate2D ] = []
 		
@@ -180,7 +180,7 @@ class MapViewController : UIViewController
 
 extension MapViewController : MKMapViewDelegate
 {
-	func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer
+	func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer
 	{
 		if let segment = overlay as? FietssnelwegSegment
 		{
@@ -189,14 +189,14 @@ extension MapViewController : MKMapViewDelegate
 			
 			switch (segment.realisatiegraad)
 			{
-				case .Onbekend:
-					renderer.strokeColor = UIColor.grayColor()
+				case .onbekend:
+					renderer.strokeColor = UIColor.gray()
 					
-				case .Onbestaand:
-					renderer.strokeColor = UIColor.redColor()
+				case .onbestaand:
+					renderer.strokeColor = UIColor.red()
 					
-				case .Bestaand:
-					renderer.strokeColor = UIColor.greenColor()
+				case .bestaand:
+					renderer.strokeColor = UIColor.green()
 			}
 			
 			return renderer
